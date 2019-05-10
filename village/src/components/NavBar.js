@@ -6,8 +6,8 @@ import '../App.css';
 const NavBar = props => {
 	return (
 		<div className = 'nav-bar'>
-			<NavLink to={'/'}>Smurfs</NavLink>
-			<NavLink to={'/smurf-form'}>Add/Update Smurf</NavLink>
+			<NavLink className='nav-link' exact to={'/'}>Smurfs</NavLink>
+			<NavLink className='nav-link' to={'/smurf-form'}>Add/Update Smurf</NavLink>
 		</div>
 	);
 }
