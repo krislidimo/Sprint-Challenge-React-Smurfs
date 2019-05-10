@@ -47,9 +47,9 @@ class App extends Component {
       .catch(err => { console.log(err) })
   }
 
-  updateSmurf = smurf => {
+  updateSmurf = (id,smurf) => {
     axios
-      .delete(`http://localhost:3333/${smurf.id}`)
+      .delete(`http://localhost:3333/${id}`, )
       .then(res => {
         this.setState({ smurfs: res.data })
       })
@@ -80,6 +80,8 @@ class App extends Component {
             <SmurfForm 
               {...props}
               addSmurf={this.addSmurf} 
+              removeSmurf = {this.removeSmurf}
+              updateSmurf = {this.updateSmurf}
             />
           )}
         />

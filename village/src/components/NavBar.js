@@ -7,7 +7,7 @@ const NavBar = props => {
 	return (
 		<div className = 'nav-bar'>
 			<NavLink to={'/'}>Smurfs</NavLink>
-			<NavLink to={'/smurf-form'}>Add A Smurf</NavLink>
+			<NavLink to={'/smurf-form'}>Add/Update Smurf</NavLink>
 		</div>
 	);
 }
