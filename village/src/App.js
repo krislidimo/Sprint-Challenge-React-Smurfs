@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 import './App.css';
@@ -36,22 +36,32 @@ class App extends Component {
         this.setState({ smurfs: res.data })
       })
       .catch(err => { console.log(err) })
-  } ;
+  }
+
+  removeSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/${id}`)
+      .then(res => {
+        this.setState({ smurfs: res.data })
+      })
+      .catch(err => { console.log(err) })
+  }
+
+  updateSmurf = smurf => {
+    axios
+      .delete(`http://localhost:3333/${smurf.id}`)
+      .then(res => {
+        this.setState({ smurfs: res.data })
+      })
+      .catch(err => { console.log(err) })
+  }
+
+
 
   render() {
     return (
       <div className="App">
         <NavBar />
-        
-        <Route 
-          path='/smurf-form' 
-          render={ props => (
-            <SmurfForm 
-              {...props}
-              addSmurf={this.addSmurf} 
-            />
-          )}
-        />
 
         <Route 
           exact
@@ -62,6 +72,16 @@ class App extends Component {
               smurfs={this.state.smurfs} 
             />
           )} 
+        />
+
+        <Route 
+          path='/smurf-form' 
+          render={ props => (
+            <SmurfForm 
+              {...props}
+              addSmurf={this.addSmurf} 
+            />
+          )}
         />
       </div>
     );
